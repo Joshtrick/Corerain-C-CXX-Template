@@ -28,7 +28,7 @@ link_libraries(
 #Add project source codes to project
 set(SRC "" CACHE INTERNAL "")
 file(GLOB SRC
-  src/utilility/*.c src/utility/*.cpp
+  src/utility/*.c src/utility/*.cpp
   src/engine/*.c src/engine/*.cpp
   src/parser/*.c src/parser/*.cpp
   )
