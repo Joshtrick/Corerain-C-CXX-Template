@@ -2,6 +2,7 @@
 data/
 build/
 ignore/
+log/*.log
 #Do NOT ignore these files
 !inc/
 !src/
