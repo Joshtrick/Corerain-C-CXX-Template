@@ -1,4 +1,4 @@
-#include "utility/corerain_printer.h"
+#include "utility/cr_printer.h"
 
 using namespace std;
 
@@ -33,12 +33,12 @@ void print_corerain()
 
 }
 
-void print_program_info(const char *prog_name, int logo)
+void print_program_info(const char *prog_name, int header)
 {
 
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
-  if(logo)
+  if(header)
   {
     printf("  ####    ####    #####    #####  #####     ###   ##  ##  #\n");
     printf(" ##      ##  ##   ##  ##   ##     ##   ##  #####  ##  ##  #\n");
@@ -58,8 +58,8 @@ void print_program_info(const char *prog_name, int logo)
     printf("\n");
   }
 
-  printf("[CORERAIN] Date: %d/%d/%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
-  printf("[CORERAIN] Time: %d:%d:%d\n", tm.tm_hour, tm.tm_min, tm.tm_sec);
+  printf("[CORERAIN] Date: %02d/%02d/%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
+  printf("[CORERAIN] Time: %02d:%02d:%02d\n", tm.tm_hour, tm.tm_min, tm.tm_sec);
   printf("[CORERAIN] Program: %s\n", prog_name);
   printf("\n");
 }

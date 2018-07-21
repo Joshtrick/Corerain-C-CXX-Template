@@ -1,5 +1,5 @@
-#ifndef CR_UTILITY_H
-#define CR_UTILITY_H
+#ifndef CR_TIMER_H
+#define CR_TIMER_H
 
 #include <iostream>
 #include <string>
@@ -19,4 +19,4 @@ private:
 };
 
 
-#endif //CR_UTILITY_H
+#endif //CR_TIMER_H

@@ -1,5 +1,5 @@
-#ifndef CORERAIN_PRINTER_H
-#define CORERAIN_PRINTER_H
+#ifndef CR_PRINTER_H
+#define CR_PRINTER_H
 
 #include <stdio.h>
 #include <time.h>
@@ -14,4 +14,4 @@
 void print_corerain();
 void print_program_info(const char *prog_name, int logo);
 
-#endif //CORERAIN_PRINTER_H
+#endif //CR_PRINTER_H
