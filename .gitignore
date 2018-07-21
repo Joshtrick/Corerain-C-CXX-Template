@@ -8,3 +8,4 @@ ignore/
 !test/
 !script/
 !config/
+!log/
