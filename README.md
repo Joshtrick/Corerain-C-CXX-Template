@@ -10,6 +10,8 @@ This repository is a basic template for a Qt5 project for a customized camera sy
 |   └── <binary files or parameters for configuration>
 ├── script
 |   └── <cusomized scripts>
+├── log
+|   └── <log file of profram>
 ├── inc
 |   ├── engine
 |   |   └── <header files of engine>
