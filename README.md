@@ -10,6 +10,8 @@ This repository is a basic template for a Qt5 project for a customized camera sy
 |   └── <binary files or parameters for configuration>
 ├── script
 |   └── <cusomized scripts>
+├── log
+|   └── <log file of profram>
 ├── inc
 |   ├── engine
 |   |   └── <header files of engine>
@@ -35,6 +37,7 @@ Directories [inc](./inc) and [src](./src) both have 3 subtirectories:
 1. engine
 2. parser
 3. utility
+
 These subdirectories are used to store header files and source codes for different purposes.
 
 Directories [test](./test) is used to store the test cases and use cases of the project.
