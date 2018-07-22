@@ -2,16 +2,22 @@
 #define CR_PRINTER_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #define DEBUG_TEST 1
+
+#ifndef print_debug
 #define print_debug(fmt, ...) \
   do{ \
-    if(DEBUG_TEST) printf("[DEBUG] File %s, line %d, %s():\n[DEBUG] " fmt, __FILE__, \
-                          __LINE__, __func__, __VA_ARGS__); \
+    if(DEBUG_TEST) printf("[DEBUG] " fmt "[DEBUG] @ %s:%d:%s()\n" , \
+                          __VA_ARGS__, __FILE__, __LINE__, __func__); \
   }while(0)
+#endif //print_debug
 
-void print_corerain();
+
 void print_program_info(const char *prog_name, int logo);
+void print_corerain();
 
 #endif //CR_PRINTER_H

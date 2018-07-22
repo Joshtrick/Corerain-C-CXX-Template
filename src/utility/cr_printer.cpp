@@ -2,6 +2,64 @@
 
 using namespace std;
 
+void print_program_info(const char *file_name, int header)
+{
+  time_t t = time(NULL);
+  struct tm tm = *localtime(&t);
+
+  printf("===================================CORERAIN TECHNOLOGIES===================================\n");
+  if(header)
+  {
+    printf("  ####    ####    #####    #####  #####     ###   ##  ##  #\n");
+    printf(" ##      ##  ##   ##  ##   ##     ##   ##  #####  ##  ##  #\n");
+    printf("##      ##    ##  ##  ##   ####   ##   ##  #  ##  ##  ### #\n");
+    printf("##      ##    ##  #####    ##     #####    #  ##  ##  #####\n");
+    printf("##      ##    ##  ## ##    ##     ## ##    #####  ##  # ###\n");
+    printf(" ##      ##  ##   ##  ##   ##     ##  ##   #  ##  ##  #  ##\n");
+    printf("  ####    ####    ##  ###  #####  ##  ###  #  ##  ##  #   #\n");
+    printf("\n");
+    printf("######  #####    ####  ##   ##  ##  #    ####    ##       ####      ####   ##  #####   ####\n");
+    printf("  ##    ##      ##     ##   ##  ##  #   ##  ##   ##      ##  ##    ##      ##  ##     ##\n");
+    printf("  ##    ####   ##      ##   ##  ### #  ##    ##  ##     ##    ##  ##       ##  ####   ###\n");
+    printf("  ##    ##     ##      #######  #####  ##    ##  ##     ##    ##  ##  ##   ##  ##      ###\n");
+    printf("  ##    ##     ##      ##   ##  # ###  ##    ##  ##     ##    ##  ##   ##  ##  ##       ###\n");
+    printf("  ##    ##      ##     ##   ##  #  ##   ##  ##   ##      ##  ##    ##  ##  ##  ##        ##\n");
+    printf("  ##    #####    ####  ##   ##  #   #    ####    #####    ####      #####  ##  #####  ####\n");
+    printf("\n");
+  }
+
+  printf("[CORERAIN] Date: %02d/%02d/%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
+  printf("[CORERAIN] Time: %02d:%02d:%02d\n", tm.tm_hour, tm.tm_min, tm.tm_sec);
+
+  if(strlen(file_name) <= 71)
+  {
+    printf("[CORERAIN] Program: %s\n", file_name);
+  }else
+  {
+    printf("[CORERAIN] Program: ");
+    for(int i = 0; i < strlen(file_name); i++)
+    {
+      if((i+1)%71 == 0)
+      {
+        printf("%c\n", file_name[i]);
+      }else if((i+1)%71 == 1 && i != 0)
+      {
+        printf("[CORERAIN]          %c", file_name[i]);
+      }
+      else
+      {
+        printf("%c", file_name[i]);
+      }
+    }
+    if(strlen(file_name)%71 != 0)
+    {
+      printf("\n");
+    }
+  }
+  printf("===================================CORERAIN TECHNOLOGIES===================================\n");
+  printf("\n");
+}
+
 void print_corerain()
 {
    printf("\n");
@@ -30,37 +88,5 @@ void print_corerain()
    printf("      #####    ####        ####   ###        ####               #####  ##       ####             #### ##  ######    ######        ####    ######\n");
    printf("         #######             ######          ######               ######        ######            #####    ####     #####       ########   ####\n");
    printf("\n");
-
-}
-
-void print_program_info(const char *prog_name, int header)
-{
-
-  time_t t = time(NULL);
-  struct tm tm = *localtime(&t);
-  if(header)
-  {
-    printf("  ####    ####    #####    #####  #####     ###   ##  ##  #\n");
-    printf(" ##      ##  ##   ##  ##   ##     ##   ##  #####  ##  ##  #\n");
-    printf("##      ##    ##  ##  ##   ####   ##   ##  #  ##  ##  ### #\n");
-    printf("##      ##    ##  #####    ##     #####    #  ##  ##  #####\n");
-    printf("##      ##    ##  ## ##    ##     ## ##    #####  ##  # ###\n");
-    printf(" ##      ##  ##   ##  ##   ##     ##  ##   #  ##  ##  #  ##\n");
-    printf("  ####    ####    ##  ###  #####  ##  ###  #  ##  ##  #   #\n");
-    printf("\n");
-    printf("######  #####    ####  ##   ##  ##  #    ####    ##       ####      ####   ##  #####   ####\n");
-    printf("  ##    ##      ##     ##   ##  ##  #   ##  ##   ##      ##  ##    ##      ##  ##     ##\n");
-    printf("  ##    ####   ##      ##   ##  ### #  ##    ##  ##     ##    ##  ##       ##  ####   ###\n");
-    printf("  ##    ##     ##      #######  #####  ##    ##  ##     ##    ##  ##  ##   ##  ##      ###\n");
-    printf("  ##    ##     ##      ##   ##  # ###  ##    ##  ##     ##    ##  ##   ##  ##  ##       ###\n");
-    printf("  ##    ##      ##     ##   ##  #  ##   ##  ##   ##      ##  ##    ##  ##  ##  ##        ##\n");
-    printf("  ##    #####    ####  ##   ##  #   #    ####    #####    ####      #####  ##  #####  ####\n");
-    printf("\n");
-  }
-
-  printf("[CORERAIN] Date: %02d/%02d/%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
-  printf("[CORERAIN] Time: %02d:%02d:%02d\n", tm.tm_hour, tm.tm_min, tm.tm_sec);
-  printf("[CORERAIN] Program: %s\n", prog_name);
-  printf("\n");
 }
 
