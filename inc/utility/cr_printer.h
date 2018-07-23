@@ -6,15 +6,22 @@
 #include <time.h>
 #include <string.h>
 
-#define DEBUG_TEST 1
 
+//function: print_debug
+#ifndef NDEBUG_TEST
 #ifndef print_debug
 #define print_debug(fmt, ...) \
   do{ \
-    if(DEBUG_TEST) printf("[DEBUG] " fmt "[DEBUG] @ %s:%d:%s()\n" , \
-                          __VA_ARGS__, __FILE__, __LINE__, __func__); \
+    printf("[DEBUG] " fmt "        @ %s:%d:%s()\n" , \
+           __VA_ARGS__, __FILE__, __LINE__, __func__); \
   }while(0)
 #endif //print_debug
+#else
+#ifndef print_debug
+#define print_debug(fmt, ...) \
+  do{}while(0)
+#endif //print_debug
+#endif //NDEBUG_TEST
 
 
 void print_program_info(const char *prog_name, int logo);

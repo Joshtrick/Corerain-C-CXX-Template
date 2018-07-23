@@ -6,57 +6,61 @@ void print_program_info(const char *file_name, int header)
 {
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
+  int str_len = strlen(file_name);
+  int str_count = (str_len % 71 == 0 ? str_len : str_len - str_len % 71 + 71);
 
-  printf("===================================CORERAIN TECHNOLOGIES===================================\n");
+  printf("------------------------------------CORERAIN TECHNOLOGIES------------------------------------\n");
   if(header)
   {
-    printf("  ####    ####    #####    #####  #####     ###   ##  ##  #\n");
-    printf(" ##      ##  ##   ##  ##   ##     ##   ##  #####  ##  ##  #\n");
-    printf("##      ##    ##  ##  ##   ####   ##   ##  #  ##  ##  ### #\n");
-    printf("##      ##    ##  #####    ##     #####    #  ##  ##  #####\n");
-    printf("##      ##    ##  ## ##    ##     ## ##    #####  ##  # ###\n");
-    printf(" ##      ##  ##   ##  ##   ##     ##  ##   #  ##  ##  #  ##\n");
-    printf("  ####    ####    ##  ###  #####  ##  ###  #  ##  ##  #   #\n");
-    printf("\n");
-    printf("######  #####    ####  ##   ##  ##  #    ####    ##       ####      ####   ##  #####   ####\n");
-    printf("  ##    ##      ##     ##   ##  ##  #   ##  ##   ##      ##  ##    ##      ##  ##     ##\n");
-    printf("  ##    ####   ##      ##   ##  ### #  ##    ##  ##     ##    ##  ##       ##  ####   ###\n");
-    printf("  ##    ##     ##      #######  #####  ##    ##  ##     ##    ##  ##  ##   ##  ##      ###\n");
-    printf("  ##    ##     ##      ##   ##  # ###  ##    ##  ##     ##    ##  ##   ##  ##  ##       ###\n");
-    printf("  ##    ##      ##     ##   ##  #  ##   ##  ##   ##      ##  ##    ##  ##  ##  ##        ##\n");
-    printf("  ##    #####    ####  ##   ##  #   #    ####    #####    ####      #####  ##  #####  ####\n");
-    printf("\n");
+    printf("|  ####    ####    #####    #####  #####     ###   ##  ##  #                                |\n");
+    printf("| ##      ##  ##   ##  ##   ##     ##   ##  #####  ##  ##  #                                |\n");
+    printf("|##      ##    ##  ##  ##   ####   ##   ##  #  ##  ##  ### #                                |\n");
+    printf("|##      ##    ##  #####    ##     #####    #  ##  ##  #####                                |\n");
+    printf("|##      ##    ##  ## ##    ##     ## ##    #####  ##  # ###                                |\n");
+    printf("| ##      ##  ##   ##  ##   ##     ##  ##   #  ##  ##  #  ##                                |\n");
+    printf("|  ####    ####    ##  ###  #####  ##  ###  #  ##  ##  #   #                                |\n");
+    printf("|                                                                                           |\n");
+    printf("|######  #####    ####  ##   ##  ##  #    ####    ##       ####      ####   ##  #####   ####|\n");
+    printf("|  ##    ##      ##     ##   ##  ##  #   ##  ##   ##      ##  ##    ##      ##  ##     ##   |\n");
+    printf("|  ##    ####   ##      ##   ##  ### #  ##    ##  ##     ##    ##  ##       ##  ####   ###  |\n");
+    printf("|  ##    ##     ##      #######  #####  ##    ##  ##     ##    ##  ##  ##   ##  ##      ### |\n");
+    printf("|  ##    ##     ##      ##   ##  # ###  ##    ##  ##     ##    ##  ##   ##  ##  ##       ###|\n");
+    printf("|  ##    ##      ##     ##   ##  #  ##   ##  ##   ##      ##  ##    ##  ##  ##  ##        ##|\n");
+    printf("|  ##    #####    ####  ##   ##  #   #    ####    #####    ####      #####  ##  #####  #### |\n");
+    printf("|                                                                                           |\n");
   }
 
-  printf("[CORERAIN] Date: %02d/%02d/%d\n", tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
-  printf("[CORERAIN] Time: %02d:%02d:%02d\n", tm.tm_hour, tm.tm_min, tm.tm_sec);
+  printf("|[CORERAIN] Date:    %02d/%02d/%04d                                                             |\n",
+         tm.tm_mday, tm.tm_mon + 1, tm.tm_year + 1900);
+  printf("|[CORERAIN] Time:    %02d:%02d:%02d                                                               |\n",
+         tm.tm_hour, tm.tm_min, tm.tm_sec);
 
-  if(strlen(file_name) <= 71)
+  printf("|[CORERAIN] Program: ");
+  for(int i = 0; i < str_count; i++)
   {
-    printf("[CORERAIN] Program: %s\n", file_name);
-  }else
-  {
-    printf("[CORERAIN] Program: ");
-    for(int i = 0; i < strlen(file_name); i++)
+    if((i+1)%71 == 0 && i != str_count - 1)
     {
-      if((i+1)%71 == 0)
-      {
-        printf("%c\n", file_name[i]);
-      }else if((i+1)%71 == 1 && i != 0)
-      {
-        printf("[CORERAIN]          %c", file_name[i]);
-      }
-      else
-      {
-        printf("%c", file_name[i]);
-      }
-    }
-    if(strlen(file_name)%71 != 0)
+      printf("%c|\n", file_name[i]);
+    }else if((i+1)%71 == 1 && i != 0)
     {
-      printf("\n");
+      printf("|                    %c", file_name[i]);
+    }else if(i < str_len)
+    {
+      printf("%c", file_name[i]);
+      if(i == str_count - 1)
+      {
+        printf("|\n");
+      }
+    }else
+    {
+      printf(" ");
+      if(i == str_count - 1)
+      {
+        printf("|\n");
+      }
     }
   }
-  printf("===================================CORERAIN TECHNOLOGIES===================================\n");
+  printf("------------------------------------CORERAIN TECHNOLOGIES------------------------------------\n");
   printf("\n");
 }
 
