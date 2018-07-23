@@ -24,7 +24,7 @@
 #endif //NDEBUG_TEST
 
 
-void print_program_info(const char *prog_name, int logo);
+void print_program_info(const char *prog_name, int header);
 void print_corerain();
 
 #endif //CR_PRINTER_H

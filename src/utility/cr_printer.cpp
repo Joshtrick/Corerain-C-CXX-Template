@@ -6,8 +6,10 @@ void print_program_info(const char *file_name, int header)
 {
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
+  int line_len = 71;
   int str_len = strlen(file_name);
-  int str_count = (str_len % 71 == 0 ? str_len : str_len - str_len % 71 + 71);
+  int str_count = (str_len % line_len == 0 ? str_len : str_len - str_len % line_len + line_len);
+
 
   printf("------------------------------------CORERAIN TECHNOLOGIES------------------------------------\n");
   if(header)
@@ -38,10 +40,10 @@ void print_program_info(const char *file_name, int header)
   printf("|[CORERAIN] Program: ");
   for(int i = 0; i < str_count; i++)
   {
-    if((i+1)%71 == 0 && i != str_count - 1)
+    if((i+1)%line_len == 0 && i != str_count - 1)
     {
       printf("%c|\n", file_name[i]);
-    }else if((i+1)%71 == 1 && i != 0)
+    }else if((i+1)%line_len == 1 && i != 0)
     {
       printf("|                    %c", file_name[i]);
     }else if(i < str_len)
